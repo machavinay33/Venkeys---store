@@ -69,7 +69,7 @@ export default function AdminLayout() {
   )
 
   return (
-    <div className="min-h-screen bg-cream-200/40 flex">
+    <div className="admin-shell min-h-screen min-w-0 overflow-x-hidden bg-cream-200/40 flex">
       {/* Desktop sidebar */}
       <aside className="hidden lg:flex lg:w-64 lg:flex-col bg-brown-950 fixed inset-y-0 left-0">
         {SidebarContent}
@@ -85,14 +85,14 @@ export default function AdminLayout() {
         </div>
       )}
 
-      <div className="flex-1 lg:ml-64">
+      <div className="min-w-0 flex-1 lg:ml-64">
         <header className="lg:hidden sticky top-0 z-30 bg-brown-950 flex items-center justify-between px-4 py-3">
           <span className="font-display text-3xl italic font-semibold tracking-[-0.04em] text-cream">Venky&apos;s</span>
           <button onClick={() => setMobileOpen(true)} className="text-cream p-2" aria-label="Open menu">
             <Menu size={22} />
           </button>
         </header>
-        <main className="p-5 sm:p-8 lg:p-10">
+        <main className="min-w-0 p-4 sm:p-8 lg:p-10">
           <Outlet />
         </main>
       </div>
