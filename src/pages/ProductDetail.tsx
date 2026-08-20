@@ -43,7 +43,10 @@ export default function ProductDetail() {
     )
   }
 
-  const images = product.gallery_images.length ? product.gallery_images : [product.cover_image]
+  const images = [
+    product.cover_image,
+    ...product.gallery_images.filter((image) => image && image !== product.cover_image),
+  ]
   const related = products.filter((p) => p.id !== product.id).slice(0, 4)
 
   const handleAdd = () => {
