@@ -6,6 +6,7 @@ import { EmptyState } from '@/components/Skeletons'
 import { useCart } from '@/lib/cart'
 import { formatINR } from '@/lib/format'
 import { createOrder, type CheckoutDetails } from '@/lib/orders'
+import ProductImage from '@/components/ProductImage'
 
 const initialForm: CheckoutDetails = {
   fullName: '',
@@ -218,7 +219,7 @@ export default function Checkout() {
               <div className="space-y-4 mb-6 max-h-64 overflow-y-auto pr-1">
                 {items.map((item) => (
                   <div key={item.productId} className="flex gap-3 items-center">
-                    <img src={item.image} alt="" className="h-14 w-14 rounded-sm object-cover bg-cream-200 shrink-0" />
+                    <ProductImage src={item.image} alt="" className="h-14 w-14 rounded-sm object-cover bg-cream-200 shrink-0" />
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium text-brown-900 truncate">{item.name}</p>
                       <p className="text-xs text-brown-900/50">Qty {item.quantity}</p>

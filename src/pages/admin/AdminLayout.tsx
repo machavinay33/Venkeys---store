@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import { LayoutGrid, Package, Tag, Settings, LogOut, Menu, X, ExternalLink } from 'lucide-react'
 import { useAuth } from '@/lib/auth'
-import logo from '@/assets/logo.jpg'
 
 const LINKS = [
   { to: '/admin', label: 'Orders', icon: LayoutGrid, end: true },
@@ -24,7 +23,10 @@ export default function AdminLayout() {
   const SidebarContent = (
     <>
       <div className="flex items-center gap-3 px-6 py-6">
-        <img src={logo} alt="Venky's" className="h-9 rounded-sm" />
+        <div className="flex flex-col leading-none">
+          <span className="font-display text-3xl italic font-semibold tracking-[-0.04em] text-cream">Venky&apos;s</span>
+          <span className="mt-1 text-[7px] uppercase tracking-[0.2em] text-gold/80">Authentic Organic Spices</span>
+        </div>
         <span className="text-cream/50 text-xs uppercase tracking-wide">Admin</span>
       </div>
       <nav className="flex-1 px-3 space-y-1">
@@ -85,7 +87,7 @@ export default function AdminLayout() {
 
       <div className="flex-1 lg:ml-64">
         <header className="lg:hidden sticky top-0 z-30 bg-brown-950 flex items-center justify-between px-4 py-3">
-          <img src={logo} alt="Venky's" className="h-8 rounded-sm" />
+          <span className="font-display text-3xl italic font-semibold tracking-[-0.04em] text-cream">Venky&apos;s</span>
           <button onClick={() => setMobileOpen(true)} className="text-cream p-2" aria-label="Open menu">
             <Menu size={22} />
           </button>

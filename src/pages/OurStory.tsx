@@ -2,8 +2,7 @@ import { Link } from 'react-router-dom'
 import SEO from '@/components/SEO'
 import Reveal from '@/components/Reveal'
 import TornEdge from '@/components/TornEdge'
-import productImg from '@/assets/product-1kg.jpg'
-import heroImg from '@/assets/product-hero.jpg'
+import ProductImage from '@/components/ProductImage'
 
 export default function OurStory() {
   return (
@@ -29,7 +28,7 @@ export default function OurStory() {
 
       <section className="container-page py-16 sm:py-24 grid lg:grid-cols-2 gap-16 items-center">
         <Reveal>
-          <img src={heroImg} alt="Venky's Red Chilli Powder" className="w-full max-w-md mx-auto rounded-sm shadow-soft" />
+          <ProductImage src={null} alt="Venky's Red Chilli Powder" className="w-full max-w-md mx-auto aspect-square rounded-sm shadow-soft" loading="eager" />
         </Reveal>
         <Reveal delay={0.15}>
           <span className="eyebrow">How It Began</span>
@@ -85,7 +84,7 @@ export default function OurStory() {
           <Link to="/shop" className="btn-primary w-fit">Shop Our Chilli Powder</Link>
         </Reveal>
         <Reveal delay={0.15} className="order-1 lg:order-2">
-          <img src={productImg} alt="Venky's spices" className="w-full max-w-md mx-auto rounded-sm shadow-soft" />
+          <ProductImage src={null} alt="Venky's spices" className="w-full max-w-md mx-auto aspect-square rounded-sm shadow-soft" loading="eager" />
         </Reveal>
       </section>
     </>

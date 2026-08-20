@@ -4,6 +4,7 @@ import { Plus } from 'lucide-react'
 import type { Product } from '@/lib/types'
 import { formatINR } from '@/lib/format'
 import { useCart } from '@/lib/cart'
+import ProductImage from '@/components/ProductImage'
 
 const BADGE_LABEL: Record<string, string> = {
   bestseller: 'Bestseller',
@@ -46,10 +47,9 @@ export default function ProductCard({ product, index = 0 }: { product: Product; 
               Sold Out
             </span>
           )}
-          <img
+          <ProductImage
             src={product.cover_image}
             alt={`${product.name} ${product.weight_label}`}
-            loading="lazy"
             className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
           <button

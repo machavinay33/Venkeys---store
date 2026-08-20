@@ -9,6 +9,7 @@ import { EmptyState } from '@/components/Skeletons'
 import { useProduct, useProducts } from '@/lib/hooks'
 import { formatINR } from '@/lib/format'
 import { useCart } from '@/lib/cart'
+import ProductImage from '@/components/ProductImage'
 
 export default function ProductDetail() {
   const { slug } = useParams<{ slug: string }>()
@@ -99,7 +100,7 @@ export default function ProductDetail() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="aspect-square rounded-sm overflow-hidden bg-cream-200">
-              <img
+              <ProductImage
                 src={images[activeImage]}
                 alt={product.name}
                 className="h-full w-full object-cover"
@@ -115,7 +116,7 @@ export default function ProductDetail() {
                       activeImage === i ? 'border-maroon' : 'border-transparent'
                     }`}
                   >
-                    <img src={img} alt="" className="h-full w-full object-cover" />
+                    <ProductImage src={img} alt="" className="h-full w-full object-cover" />
                   </button>
                 ))}
               </div>

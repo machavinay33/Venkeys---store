@@ -4,12 +4,11 @@ import { ArrowRight, Leaf, ShieldCheck, Sparkles, Truck } from 'lucide-react'
 import SEO from '@/components/SEO'
 import Reveal from '@/components/Reveal'
 import TornEdge from '@/components/TornEdge'
+import ProductImage from '@/components/ProductImage'
 import ProductCard from '@/components/ProductCard'
 import OfferBanner from '@/components/OfferBanner'
 import { ProductGridSkeleton } from '@/components/Skeletons'
 import { useProducts, useSiteSettings } from '@/lib/hooks'
-import heroImg from '@/assets/product-hero.jpg'
-import chilliImg from '@/assets/product-500g.jpg'
 
 const VALUES = [
   { icon: Leaf, title: 'No Pesticides', desc: 'Carefully selected chillies, grown and dried the traditional way.' },
@@ -84,12 +83,16 @@ export default function Home() {
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="order-1 lg:order-2 relative"
           >
-            <div className="relative mx-auto max-w-sm lg:max-w-none">
-              <div className="absolute -inset-6 rounded-full bg-cream/5 blur-2xl" />
-              <img
-                src={heroImg}
-                alt="Venky's Red Chilli Powder pack"
-                className="relative w-full h-auto object-contain drop-shadow-[0_40px_60px_rgba(0,0,0,0.45)]"
+            <div className="relative mx-auto w-full max-w-xl overflow-hidden rounded-sm border border-gold/25 bg-brown-950 shadow-[0_32px_70px_rgba(0,0,0,0.34)]">
+              <video
+                className="block aspect-video w-full object-cover"
+                src="/venkys-hero.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                aria-label="Venky's authentic organic spices"
               />
             </div>
           </motion.div>
@@ -146,12 +149,13 @@ export default function Home() {
         <div className="absolute inset-0 bg-grain opacity-30" />
         <div className="container-page relative grid lg:grid-cols-2 gap-14 items-center">
           <Reveal>
-            <div className="relative">
+            <div className="relative max-w-md">
               <div className="absolute -inset-4 border border-gold/20 rounded-sm" />
-              <img
-                src={chilliImg}
+              <ProductImage
+                src={null}
                 alt="Venky's spices, made with tradition"
-                className="relative w-full max-w-md rounded-sm object-cover shadow-soft"
+                className="relative aspect-[4/3] w-full rounded-sm shadow-soft"
+                loading="eager"
               />
             </div>
           </Reveal>

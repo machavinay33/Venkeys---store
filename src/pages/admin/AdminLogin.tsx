@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import { useAuth } from '@/lib/auth'
-import logo from '@/assets/logo.jpg'
 
 export default function AdminLogin() {
   const { session, signIn } = useAuth()
@@ -32,8 +31,9 @@ export default function AdminLogin() {
   return (
     <div className="min-h-screen bg-brown-950 flex items-center justify-center px-6">
       <div className="w-full max-w-sm">
-        <div className="flex justify-center mb-8">
-          <img src={logo} alt="Venky's" className="h-14 rounded-sm" />
+        <div className="mb-8 flex flex-col items-center leading-none">
+          <span className="font-display text-5xl italic font-semibold tracking-[-0.04em] text-cream">Venky&apos;s</span>
+          <span className="mt-2 text-[9px] uppercase tracking-[0.2em] text-gold/80">Authentic Organic Spices</span>
         </div>
         <div className="bg-cream rounded-sm shadow-soft p-8">
           <h1 className="font-display text-2xl text-center mb-1">Admin Login</h1>

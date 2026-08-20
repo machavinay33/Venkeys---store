@@ -3,7 +3,6 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Search, ShoppingBag, Menu, X } from 'lucide-react'
 import { useCart } from '@/lib/cart'
-import logo from '@/assets/logo.jpg'
 
 const NAV_LINKS = [
   { to: '/', label: 'Home' },
@@ -54,12 +53,9 @@ export default function Navbar() {
       }`}
     >
       <div className="container-page flex items-center justify-between transition-all duration-500" style={{ height: scrolled ? 64 : 84 }}>
-        <Link to="/" className="flex items-center gap-3 shrink-0" aria-label="Venky's home">
-          <img
-            src={logo}
-            alt="Venky's — Authentic Organic Spices"
-            className={`w-auto object-contain transition-all duration-500 rounded-sm ${scrolled ? 'h-9' : 'h-12'}`}
-          />
+        <Link to="/" className="flex flex-col items-start shrink-0 leading-none" aria-label="Venky's home">
+          <span className={`font-display italic font-semibold tracking-[-0.04em] text-maroon transition-all duration-500 ${scrolled ? 'text-3xl' : 'text-4xl'}`}>Venky&apos;s</span>
+          <span className="mt-1 text-[8px] uppercase tracking-[0.2em] text-brown-900/70">Authentic Organic Spices</span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-9">
@@ -160,10 +156,13 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed right-0 top-0 z-[70] h-full w-[86%] max-w-sm bg-cream shadow-soft lg:hidden flex flex-col"
+              className="fixed right-0 top-0 z-[70] h-full w-[86%] max-w-sm bg-cream opacity-100 shadow-soft lg:hidden flex flex-col"
             >
               <div className="flex items-center justify-between px-6 py-5 border-b border-brown-900/10">
-                <img src={logo} alt="Venky's" className="h-9" />
+                <div className="flex flex-col leading-none">
+                  <span className="font-display text-3xl italic font-semibold tracking-[-0.04em] text-maroon">Venky&apos;s</span>
+                  <span className="mt-1 text-[7px] uppercase tracking-[0.2em] text-brown-900/70">Authentic Organic Spices</span>
+                </div>
                 <button
                   aria-label="Close menu"
                   onClick={() => setMobileOpen(false)}

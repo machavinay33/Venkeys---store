@@ -5,6 +5,7 @@ import SEO from '@/components/SEO'
 import { EmptyState } from '@/components/Skeletons'
 import { useCart } from '@/lib/cart'
 import { formatINR } from '@/lib/format'
+import ProductImage from '@/components/ProductImage'
 
 export default function Cart() {
   const { items, updateQuantity, removeItem, subtotal } = useCart()
@@ -42,7 +43,7 @@ export default function Cart() {
                   className="flex gap-5 py-6"
                 >
                   <Link to={`/product/${item.slug}`} className="shrink-0">
-                    <img
+                    <ProductImage
                       src={item.image}
                       alt={item.name}
                       className="h-24 w-24 sm:h-28 sm:w-28 rounded-sm object-cover bg-cream-200"

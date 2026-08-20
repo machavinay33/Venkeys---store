@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Instagram, Mail, MapPin, Phone } from 'lucide-react'
 import { useSiteSettings } from '@/lib/hooks'
-import logo from '@/assets/logo.jpg'
 
 export default function Footer() {
   const { settings } = useSiteSettings()
@@ -10,7 +9,10 @@ export default function Footer() {
     <footer className="bg-brown-950 text-cream/80">
       <div className="container-page py-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <img src={logo} alt={settings.brand_name} className="h-11 mb-5 rounded-sm" />
+          <div className="mb-5 flex flex-col leading-none">
+            <span className="font-display text-4xl italic font-semibold tracking-[-0.04em] text-cream">Venky&apos;s</span>
+            <span className="mt-1 text-[8px] uppercase tracking-[0.2em] text-gold/80">Authentic Organic Spices</span>
+          </div>
           <p className="text-sm leading-relaxed text-cream/60 max-w-xs">
             {settings.footer_note}
           </p>
