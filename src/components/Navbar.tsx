@@ -148,7 +148,7 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[60] bg-brown-950/50 lg:hidden"
+              className="fixed inset-0 z-[60] bg-brown-950/70 lg:hidden"
               onClick={() => setMobileOpen(false)}
             />
             <motion.div
@@ -156,7 +156,8 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed right-0 top-0 z-[70] h-full w-[86%] max-w-sm bg-cream opacity-100 shadow-soft lg:hidden flex flex-col"
+              className="fixed inset-y-0 right-0 z-[70] flex h-[100dvh] w-full max-w-sm flex-col overflow-y-auto bg-[#F6EFE2] opacity-100 shadow-soft [isolation:isolate] lg:hidden sm:w-[86%]"
+              style={{ backgroundColor: '#F6EFE2', opacity: 1, mixBlendMode: 'normal' }}
             >
               <div className="flex items-center justify-between px-6 py-5 border-b border-brown-900/10">
                 <div className="flex flex-col leading-none">
