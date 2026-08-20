@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display text-brown-900;
+  }
+
+  ::selection {
+    @apply bg-gold-light/60 text-brown-900;
+  }
+
+  :focus-visible {
+    outline: 2px solid #C6A15B;
+    outline-offset: 3px;
+  }
+
+  body {
+    background-image: theme('backgroundImage.grain');
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-12;
+  }
+
+  .eyebrow {
+    @apply text-xs sm:text-sm tracking-widest2 uppercase text-gold-dark font-medium;
+  }
+
+  .gold-rule {
+    @apply relative pl-5;
+  }
+  .gold-rule::before {
+    content: '';
+    @apply absolute left-0 top-1 bottom-1 w-[3px] bg-gold rounded-full;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm px-7 py-3.5 text-sm font-medium tracking-wide uppercase transition-all duration-300 ease-out disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-primary {
+    @apply btn bg-maroon text-cream hover:bg-maroon-700 active:bg-maroon-800 shadow-card;
+  }
+  .btn-outline {
+    @apply btn border border-brown-900/20 text-brown-900 hover:border-maroon hover:text-maroon;
+  }
+  .btn-gold {
+    @apply btn bg-gold text-brown-950 hover:bg-gold-dark;
+  }
+  .btn-ghost-cream {
+    @apply btn border border-cream/40 text-cream hover:bg-cream hover:text-maroon;
+  }
+
+  .card {
+    @apply bg-white/70 rounded-sm shadow-card;
+  }
+
+  .skeleton {
+    @apply relative overflow-hidden bg-cream-200 rounded-sm;
+  }
+  .skeleton::after {
+    content: '';
+    @apply absolute inset-0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 1.6s linear infinite;
+  }
+
+  /* Torn-edge divider — echoes tearing open a spice pouch. Used once,
+     as the transition out of the hero section. */
+  .torn-edge {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 28px;
+  }
+  .torn-edge svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
