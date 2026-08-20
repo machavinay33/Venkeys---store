@@ -7,7 +7,7 @@ type ProductImageProps = {
   loading?: 'eager' | 'lazy'
 }
 
-const BUNDLED_PRODUCT_IMAGE = /(?:product-(?:hero|500g|1kg)|product-\d+kg)/i
+const BUNDLED_PRODUCT_IMAGE = /(?:^|\/)images\/product-(?:hero|500g|1kg|\d+kg)\.jpg(?:$|\?)/i
 
 export default function ProductImage({ src, alt, className = '', loading = 'lazy' }: ProductImageProps) {
   const showImage = Boolean(src && !BUNDLED_PRODUCT_IMAGE.test(src))

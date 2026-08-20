@@ -52,14 +52,6 @@ export default function ProductCard({ product, index = 0 }: { product: Product; 
             alt={`${product.name} ${product.weight_label}`}
             className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
-          <button
-            onClick={handleQuickAdd}
-            disabled={product.stock_status === 'out_of_stock'}
-            aria-label={`Add ${product.name} to bag`}
-            className="absolute bottom-4 right-4 flex h-11 w-11 items-center justify-center rounded-full bg-cream text-maroon shadow-card opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-maroon hover:text-cream disabled:hidden"
-          >
-            <Plus size={18} strokeWidth={2} />
-          </button>
         </div>
 
         <div className="mt-4 flex items-start justify-between gap-3">
@@ -77,6 +69,15 @@ export default function ProductCard({ product, index = 0 }: { product: Product; 
           </div>
         </div>
       </Link>
+
+      <button
+        onClick={handleQuickAdd}
+        disabled={product.stock_status === 'out_of_stock'}
+        className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-sm border border-maroon px-4 py-3 text-xs font-semibold uppercase tracking-widest text-maroon transition-colors hover:bg-maroon hover:text-cream disabled:cursor-not-allowed disabled:opacity-50"
+      >
+        <Plus size={16} strokeWidth={2} />
+        {product.stock_status === 'out_of_stock' ? 'Out of Stock' : 'Add to Bag'}
+      </button>
     </motion.div>
   )
 }
